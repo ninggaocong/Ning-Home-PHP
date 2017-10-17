@@ -1,6 +1,7 @@
 <?php
-
+error_reporting(E_ALL || ~E_NOTICE);
 define('DS', DIRECTORY_SEPARATOR);
+$url = "http://localhost:8082/Ning/src/file/upload/";
 
 class getDirFile{
 
@@ -64,25 +65,37 @@ class getDirFile{
 }
 
 function constructDownloadPath($name, $path) {
-    echo "<p><a href=\"", $path, "\">",name ,"</a></p>", "\n";
+    echo "<p><a href=\"", $path, "\">",$name ,"</a></p>", "\n";
 }
 
-//echo 'name is ', $_POST["name"], "\n";
+//获取url
+//$url='http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["REQUEST_URI"];
+//$localurl = dirname($url);
+
+//获取文件路径
 $path = dirname(__FILE__);
 $path .= "\\upload";
 
 $getDirFile = new getDirFile($path);
 $getFile = $getDirFile->getFile( $path);
 
-//$upload = "\upload\\";
-
 foreach ($getFile as $p) {
-    $path = $path . "\\" . $p;
-    echo $path;
-    constructDownloadPath($p, $path);
+    constructDownloadPath($p, $url . $p);
+    echo $url.$p;
 }
-
-
-//print_r($getFile);
-
 ?>
+
+
+<!--//获取完整的url-->
+<!--echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];-->
+<!--echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];-->
+<!--#http://localhost/blog/testurl.php?id=5-->
+<!---->
+<!--//包含端口号的完整url-->
+<!--echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];-->
+<!--#http://localhost:80/blog/testurl.php?id=5-->
+<!---->
+<!--//只取路径-->
+<!--$url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"];-->
+<!--echo dirname($url);-->
+<!--#http://localhost/blog-->
