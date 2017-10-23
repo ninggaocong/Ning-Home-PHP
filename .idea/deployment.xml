@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="123.207.244.139" compareModeInSync="TIMESTAMP">
+  <component name="PublishConfigData" serverName="/var/www/html" compareModeInSync="TIMESTAMP">
     <serverData>
-      <paths name="123.207.244.139">
+      <paths name="/server/tomcat9/webapps/INDEX">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="/var/www/html">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
