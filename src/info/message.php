@@ -7,33 +7,57 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://123.207.244.139">首页</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br/><br/>
+    </div>
+
     <div class="jumbotron container">
-        <form action="info.php">
-            <div class="form-group">
-                <input class="form-control" type="text" name="msg"/>
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="确定"/>
-            </div>
-        </form>
+        <div class="container">
+            <form action="info.php">
+                <div class="form-group">
+                    <label>请在这里留言</label>
+                    <input class="form-control" type="text" name="msg"/>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="确定"/>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="jumbotron container">
         <div class="row container">
             <p>
                 <?php
-//                    $filename = "2017-10-23.txt";
-                    $filename = date("Y-m-d").".txt";
-//                    $file = fopen($filename, r) or die("Unable to open file!");
-//                    echo fread($file, filesize($filename));
-//                    fclose($file);
+                $filename = date("Y-m-d").".txt";
+                //                    $file = fopen($filename, r) or die("Unable to open file!");
+                //                    echo fread($file, filesize($filename));
+                //                    fclose($file);
 
-                    $handle = fopen($filename, 'r');
+                $handle = fopen($filename, 'r') ;
+                if ($handle) {
                     while(!feof($handle)){
                         echo fgets($handle, 1024);
                         echo '<br/>';
                     }
                     fclose($handle);
+                }
                 ?>
             </p>
         </div>
