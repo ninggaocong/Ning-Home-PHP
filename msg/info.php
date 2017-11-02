@@ -10,11 +10,11 @@ echo "\n输入成功";
 
 if ($msg == "906978985") {
     $file = fopen($data.".txt", "w") or die("Unable to open file!");
-    fwrite($file, "Welcome");
+    fwrite($file, "");
     fclose($file);
 }
 
 Header("HTTP/1.1 303 See Other");
-Header("Location: http://123.207.244.139:8080/src/info/message.php");
+Header("Location: http://123.207.244.139:8080/msg/msg.php");
 exit;
 ?>
